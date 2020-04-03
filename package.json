@@ -1,11 +1,30 @@
 {
-  "name": "super-tree",
+  "name": "vue-super-tree",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "列表/树形结构海量数据（10w+数据节点）动态渲染方案。",
+  "keywords": [
+    "树形数据",
+    "动态渲染"
+  ],
+  "author": "Lushenggang <lushg-tcxg@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lushenggang/super-tree.git"
+  },
+  "main": "dist/super-tree.common.js",
+  "unpkg": "dist/super-tree.min.js",
+  "module": "dist/super-tree.esm.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build-bundle": "vue-cli-service build --target lib --name vue-super-tree ./src/index.js",
+    "lint": "vue-cli-service lint",
+    "prepublishOnly": "git push && npm run build-bundle"
   },
   "dependencies": {
     "core-js": "^3.6.4",
