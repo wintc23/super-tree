@@ -7936,6 +7936,14 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
+vue-super-tree@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vue-super-tree/-/vue-super-tree-0.1.0.tgz#8a4842791ff042093d7592a7ecdffd2476adbbb7"
+  integrity sha512-0llAjjTDYRFSrHW9iE+wmctQVU2VGCehqF5Dli0B94ZoUwtFbrn1+NcoBS8G9+sVPjU6MeJmjKvOm85K4iVbyQ==
+  dependencies:
+    core-js "^3.6.4"
+    vue "^2.6.11"
+
 vue-template-compiler@^2.6.11:
   version "2.6.11"
   resolved "https://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.6.11.tgz#c04704ef8f498b153130018993e56309d4698080"

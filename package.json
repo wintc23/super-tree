@@ -13,9 +13,9 @@
     "type": "git",
     "url": "https://github.com/Lushenggang/super-tree.git"
   },
-  "main": "dist/super-tree.common.js",
-  "unpkg": "dist/super-tree.min.js",
-  "module": "dist/super-tree.esm.js",
+  "main": "dist/vue-super-tree.common.js",
+  "unpkg": "dist/vue-super-tree.min.js",
+  "module": "dist/vue-super-tree.esm.js",
   "files": [
     "dist"
   ],
@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-super-tree": "^0.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
