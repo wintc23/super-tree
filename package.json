@@ -1,6 +1,6 @@
 {
   "name": "vue-super-tree",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "列表/树形结构海量数据（10w+数据节点）动态渲染方案。",
   "keywords": [
