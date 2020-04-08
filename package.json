@@ -1,11 +1,13 @@
 {
   "name": "vue-super-tree",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "private": false,
   "description": "列表/树形结构海量数据（10w+数据节点）动态渲染方案。",
   "keywords": [
     "树形数据",
-    "动态渲染"
+    "动态渲染",
+    "大量数据渲染方案",
+    "动态加载"
   ],
   "author": "Lushenggang <lushg-tcxg@qq.com>",
   "license": "MIT",
@@ -29,7 +31,7 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
-    "vue-super-tree": "^0.1.0"
+    "vue-super-tree": "^0.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",

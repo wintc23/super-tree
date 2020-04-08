@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <tree :treeData="treeData" ref="tree">
+    <tree :treeData="treeData" ref="tree" class="super-tree-container">
       <template v-slot="{ data, showNext }">
         <div class="node-render">
           <div class="icon-container">
@@ -27,7 +27,7 @@ function generateTree () {
   console.time('ge')
   let map = new Map()
   let result = []
-  for (let i = 0; i < 30000; i++) {
+  for (let i = 0; i < 10; i++) {
     let list = new Array(Math.floor(Math.random() * 100)).fill('a')
     let data = {
       title: `节点${i}--${list.join('')}`,
@@ -36,7 +36,7 @@ function generateTree () {
       children: []
     }
     map.set(i, data)
-    if (result.length > 1000) {
+    if (result.length > 3) {
       let length = map.size - 1
       data.parentId = Math.floor(Math.random() * length)
       let parent = map.get(data.parentId)
@@ -61,6 +61,16 @@ export default {
   },
   created () {
     this.treeData = generateTree()
+    setTimeout(() => {
+      let data = this.treeData[0]
+      data.children.push({
+        title: '节点新增',
+        id: -1,
+        parentId: 0,
+        children: []
+      })
+      console.log(data.children, data.children.leng)
+    }, 2000)
   },
   methods: {
     showChildren (id, show) {
@@ -85,6 +95,16 @@ html {
 </style>
 
 <style lang="stylus" scoped>
+.super-tree-container
+  word-break break-all
+  position relative
+  text-align left
+  height 80vh
+  border-radius 8px
+  background #eee
+  overflow auto
+  >>> .node-container
+    padding 5px 10px
 .node-render
   display flex
   .icon-container

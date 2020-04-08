@@ -7944,6 +7944,15 @@ vue-super-tree@^0.1.0:
     core-js "^3.6.4"
     vue "^2.6.11"
 
+vue-super-tree@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/vue-super-tree/-/vue-super-tree-0.1.1.tgz#224d4ae17892e291208c3f3bfc09dfb838d795ad"
+  integrity sha512-a9tPj+oR5EfVTCxe1epSYhrXgsx8MwuAoaczAhCqPPFGBAGfozvkHXIjt2a+NHHUjU0ED5UGaWPm9w3viM7eKw==
+  dependencies:
+    core-js "^3.6.4"
+    vue "^2.6.11"
+    vue-super-tree "^0.1.0"
+
 vue-template-compiler@^2.6.11:
   version "2.6.11"
   resolved "https://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.6.11.tgz#c04704ef8f498b153130018993e56309d4698080"

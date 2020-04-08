@@ -1,14 +1,15 @@
 <template>
-  <div class="super-tree-container" @scroll="scroll">
+  <div @scroll="scroll" class="super-tree-container">
     <div
       v-for="node of renderList"
       ref="node"
       :key="node.id"
       :identify="node.id"
       :style="{
-        paddingLeft: `${levelData[node[props.key]] * 20}px`
+        paddingLeft: `${levelData[node[props.key]] * 20}px`,
+        margin: 0
       }"
-      class="node">
+      class="node-container">
       <node-content
         :data="node"
         :level="levelData[node[props.key]]"
@@ -36,7 +37,7 @@ export default {
       render (h) {
         let slot = this.$parent.$scopedSlots.default
         let props = this.$parent.props
-        return slot ? slot(this.slotData) : (<div>{ this.data[props.label] }</div>)
+        return slot ? slot(this.slotData) : (<div>{ this.data[props.title] }</div>)
       }
     },
   },
@@ -60,6 +61,7 @@ export default {
     return {
       foldData: {}, // 被折叠子项 key => true
       levelData: {}, // 节点层级 key => level
+      nodeMap: {}, // 节点数据映射 key => { id: 'xxx', title: 'xxx', ... }
       start: 0, // 动态渲染开始下标，preRenderList[start]对应渲染的第一个DOM
       scrollPosition: -1, // 记录滚动条位置
     }
@@ -69,7 +71,7 @@ export default {
       let defaultProps = {
         key: 'id',
         childrenKey: 'children',
-        label: 'title'
+        title: 'title'
       }
       return Object.assign({}, defaultProps, this.customProps)
     },
@@ -99,6 +101,7 @@ export default {
       tree.forEach(node => {
         result.push(node)
         this.$set(this.levelData, node[this.props.key], level + 1)
+        this.$set(this.nodeMap, node[this.props.key], node)
         node[this.props.childrenKey] && this.treeToList(node[this.props.childrenKey], result, level + 1)
       })
       return result
@@ -166,20 +169,13 @@ export default {
      */
     showChildren (key, unfold) {
       this.$set(this.foldData, key, !unfold)
+    },
+    getFoldData () {
+      return { ...this.foldData }
+    },
+    getNodeMap () {
+      return { ...this.nodeMap }
     }
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-.super-tree-container
-  word-break break-all
-  position relative
-  text-align left
-  height 80vh
-  border-radius 8px
-  background #eee
-  overflow auto
-  .node
-    padding 5px 10px
-</style>
